@@ -40,4 +40,5 @@ jobs:
           github_token: ${{ secrets.github_token }}
           reporter: github-pr-review
           level: error
+          haml_lint_config: './testdata/.haml-lint.yml'
           reviewdog_flags: -filter-mode=file -fail-on-error
