@@ -28,6 +28,10 @@ inputs:
   reviewdog_flags:
     description: 'Additional reviewdog flags'
     default: ''
+  ### Flags for hamlint
+  haml_lint_config:
+    description: 'Path to config file'
+    default: '.haml-lint.yml'
 runs:
   using: 'docker'
   image: 'Dockerfile'
