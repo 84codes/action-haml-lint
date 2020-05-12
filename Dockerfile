@@ -1,16 +1,14 @@
-FROM alpine:3.11
+FROM ruby:2.6-alpine
 
 ENV REVIEWDOG_VERSION=v0.10.0
 
 SHELL ["/bin/ash", "-eo", "pipefail", "-c"]
 
-# hadolint ignore=DL3006
-RUN apk --no-cache add git
+RUN apk add --update --no-cache build-base git
 
 RUN wget -O - -q https://raw.githubusercontent.com/reviewdog/reviewdog/master/install.sh| sh -s -- -b /usr/local/bin/ ${REVIEWDOG_VERSION}
 
-# TODO: Install a linter and/or change docker image as you need.
-RUN wget -O - -q https://git.io/misspell | sh -s -- -b /usr/local/bin/
+RUN gem install haml_lint
 
 COPY entrypoint.sh /entrypoint.sh
 
