@@ -51,6 +51,10 @@ inputs:
   reviewdog_flags:
     description: 'Additional reviewdog flags'
     default: ''
+  ### Flags for haml-lint ###
+  haml_lint_config:
+    description: 'Path to config file'
+    default: '.haml-lint.yml'
 ```
 
 ## Usage
@@ -72,6 +76,7 @@ jobs:
           # Change reporter level if you need.
           # GitHub Status Check won't become failure with warning.
           level: warning
+          haml_lint_config: .haml-config.yml # defaults to .haml-lint.yml
 ```
 
 ## Development
