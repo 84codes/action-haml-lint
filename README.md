@@ -75,7 +75,7 @@ jobs:
 ```
 
 ## Development
-Fork the repo, make a feature branch, implement your feature, create a pullrequest.
+Fork the repo, make a feature branch, implement your feature, create a pull request.
 
 ### Release
 
