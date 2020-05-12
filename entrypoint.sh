@@ -13,7 +13,7 @@ fi
 
 export REVIEWDOG_GITHUB_API_TOKEN="${INPUT_GITHUB_TOKEN}"
 
-haml-lint "$(config $INPUT_HAML_LINT_CONFIG)" . \
+haml-lint "$(config "$INPUT_HAML_LINT_CONFIG")" . \
   | reviewdog -efm="%f:%l [%t] %m" \
       -name="haml-lint" \
       -reporter="${INPUT_REPORTER:-github-pr-check}" \
