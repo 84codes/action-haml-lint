@@ -1,9 +1,9 @@
 #!/bin/sh
 set -e
 
-config() {
+haml_lint_flags() {
   if [ -n "$1" ]; then
-    echo "-c $1"
+    echo "$1"
   fi
 }
 
@@ -13,8 +13,9 @@ fi
 
 export REVIEWDOG_GITHUB_API_TOKEN="${INPUT_GITHUB_TOKEN}"
 
-haml-lint "$(config "$INPUT_HAML_LINT_CONFIG")" . \
-  | reviewdog -efm="%f:%l [%t] %m" \
+# shellcheck disable=SC2046
+# shellcheck disable=SC2086
+haml-lint $(haml_lint_flags "$INPUT_HAML_LINT_FLAGS") . | reviewdog -efm="%f:%l [%t] %m" \
       -name="haml-lint" \
       -reporter="${INPUT_REPORTER:-github-pr-check}" \
       -filter-mode="${INPUT_FILTER_MODE}" \
