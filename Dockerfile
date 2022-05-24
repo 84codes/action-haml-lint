@@ -1,6 +1,6 @@
 FROM ruby:2.6-alpine
 
-ENV REVIEWDOG_VERSION=v0.11.0
+ENV REVIEWDOG_VERSION=v0.14.1
 
 SHELL ["/bin/ash", "-eo", "pipefail", "-c"]
 

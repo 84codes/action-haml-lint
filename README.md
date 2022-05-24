@@ -67,7 +67,7 @@ jobs:
     name: runner / haml-lint
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
       - uses: 84codes/action-haml-lint@v1
         with:
           github_token: ${{ secrets.github_token }}
